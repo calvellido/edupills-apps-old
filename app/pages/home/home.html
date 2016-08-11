@@ -1,11 +1,22 @@
 <ion-header>
-  <ion-navbar dark>
-    <ion-title>
-      Edupills
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar dark>
+		<button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+        <ion-title>
+            Edupills
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  Educational pills by INTEF.
+<ion-content padding class="home">
+
+	<h2>Educational pills by INTEF.</h2>
+
+	<img [src]="'img/splash.png'" [alt]="EduPills"><br>
+
+	<button primary menuToggle>Toggle Menu</button>
+
+	<button (click)='nothin()'>Useless button</button>
+
 </ion-content>
