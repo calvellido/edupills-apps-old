@@ -1,11 +1,13 @@
 <ion-header>
-    <ion-navbar dark>
+    <ion-navbar>
 		<button menuToggle>
-			<ion-icon name="menu"></ion-icon>
+			<ion-icon name="menu" dark></ion-icon>
 		</button>
         <ion-title>
             Edupills
         </ion-title>
+        <ion-icon dark name="search" class="right-16"></ion-icon>
+        <ion-icon dark name="contact" class="right-8"></ion-icon>
     </ion-navbar>
 </ion-header>
 
@@ -13,10 +15,12 @@
 
 	<h2>Educational pills by INTEF.</h2>
 
-	<img [src]="'img/splash.png'" [alt]="EduPills"><br>
+  <div class="image"><img padding [src]="'img/logo.png'" [alt]="EduPills"></div>
 
-	<button primary menuToggle>Toggle Menu</button>
-
-	<button (click)='nothin()'>Useless button</button>
+  <ion-list>
+      <button ion-item>New Courses</button>
+      <button ion-item>All Courses</button>
+      <button ion-item>Notes</button>
+  </ion-list>
 
 </ion-content>

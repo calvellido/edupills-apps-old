@@ -13,15 +13,18 @@ import {PillDetailsPage} from '../pill-details/pill-details';
 })
 export class PillListPage {
 
-    items: Array<{ title: string, note: string }>;
+    items: Array<{ title: string, note: string, ago: number, author: string, completed: number}>;
 
     constructor(private navCtrl: NavController, private navParams: NavParams) {
 
         this.items = [];
         for (let i = 1; i < 201; i++) {
             this.items.push({
-                title: 'Pill ' + i,
-                note: 'Short description for pill #' + i
+                title: 'Conoce las licencias Creative Commons para proteger y compartir tus creaciones ' + i,
+                note: 'Short description for PILL #' + i,
+                ago: 5,
+                author: 'Author',
+                completed: 1
             });
         }
 

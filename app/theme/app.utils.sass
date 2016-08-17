@@ -1,0 +1,44 @@
+// File for write your own utilities for Sass (mixins, extends, placeholders...)
+
+=clearfix()
+  &:after
+    content: ""
+    display: block
+    visibility: hidden
+    height: 0
+    clear: both
+
+.clearfix
+  +clearfix()
+
+// Help class for margins
+=margin($margin, $val)
+  margin-#{$margin}: $val
+
+@for $i from 1 through 50
+  @each $margin in top, left, bottom, right
+    .#{$margin}-#{$i}
+      +margin($margin, 1px * $i)
+
+// Hide
+=hide-accessible()
+  font-size: 0
+  color: transparent
+  line-height: 0
+
+=hide-absolute()
+  position: absolute
+  white-space: nowrap
+  left: -9999px
+
+.hide
+  display: none
+
+// Attributes
+[nopadding]
+  padding: 0
+  &[inset]
+    .item-inner
+      padding: 0 16px
+
+

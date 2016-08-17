@@ -15,7 +15,6 @@
 // in the app.core.scss file and not this file. Sass variables specific
 // to the mode belong in either the app.ios.scss or app.md.scss files.
 
-
 // App Shared Color Variables
 // --------------------------------------------------
 // It's highly recommended to change the default colors
@@ -26,10 +25,15 @@
 // are different per mode.
 
 $colors: (
-  primary:    #387ef5,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #444,
-  favorite:   #69BB7B
+    primary: #29B6F6,
+    secondary: #0176BC,
+    danger: #EF5350,
+    light: #94DAFA,
+    dark: #495F70,
+    favorite: #00AA85,
+    gray: #999,
+    white: #ffffff
 );
+
+// Override Ionic variables
+$list-md-text-color: color($colors, dark)
