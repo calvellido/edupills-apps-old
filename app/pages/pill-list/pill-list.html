@@ -13,15 +13,22 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
     <ion-list>
-        <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-            <span>{{item.title}}</span>
-            <div class="item-note" item-right>
-                {{item.note}}
+        <ion-item nopadding inset *ngFor="let item of items" (click)="itemTapped($event, item)">
+            <h2>{{item.title}}</h2>
+            <div *ngIf="item.completed === 0" class="pill-status" item-right>
+              <ion-icon name="lock" medium></ion-icon>
             </div>
-        </button>
+            <div *ngIf="item.completed === 1" class="pill-status" item-right>
+              <ion-icon name="clipboard" medium></ion-icon>
+            </div>
+            <div class="top-10">
+              <span class="pill-time"><ion-icon name="time"></ion-icon> {{item.ago}} min</span>
+              <span class="pill-author">By {{item.author}}</span>
+            </div>
+        </ion-item>
     </ion-list>
 
 </ion-content>
