@@ -8,13 +8,14 @@
 
 @import ../pages/home/home
 @import ../pages/pill-list/pill-list
+@import ../pages/pill-details/pill-details
 @import ../pages/user/user
 
 body
   font-size: 18px
   line-height: 1.5em
 
-[padding] scroll-content
+ion-page:not(.pill-details-page) [padding] scroll-content
   padding: 0
 
 // Ionic
@@ -48,7 +49,6 @@ ion
 
 // Icons
 ion-icon[medium]
-  min-height: 2em
   font-size: 2em
 
 // Item
@@ -56,6 +56,7 @@ ion-icon[medium]
   margin: 9px 0px 9px 8px
 
 // Toolbar
+.pill-details-page,
 .home-page,
 .user-page
   .toolbar-title
@@ -67,3 +68,38 @@ ion-icon[medium]
   .home-page &,
   .user-page &
      +hide-accessible
+
+// Label
+ion-label
+  &.label
+    text-transform: uppercase
+    color: color($colors, primary)
+    font-weight: 600
+    font-size: 1.8rem
+
+// Cards
+ion-card
+  overflow: auto
+  text-align: center
+  min-height: calc(100% - 6%)
+  position: relative
+  &-title h2
+    font-size: 4rem
+  &-content
+    color: $card-md-text-color
+    p
+      font-size: $card-md-font-size
+      text-align: left
+ion-note
+  border-top: 1px solid color($colors, gray)
+  margin: 1em 1em 0
+  width: calc(100% - 2em)
+  display: block
+  padding: 8px 0
+  text-align: left
+  bottom: 0
+  position: absolute
+  > *:last-child
+    float: right
+  &[noborder]
+    border: 0

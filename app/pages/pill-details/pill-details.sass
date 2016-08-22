@@ -1,0 +1,50 @@
+@import ../../theme/app.variables
+@import ../../theme/app.utils
+
+.pill-details-page
+  ion-navbar
+    background-color: color($colors, light)
+    color: color($colors, white)
+    &.primary
+      .toolbar-background
+        background-color: color($colors, primary)
+  ion-content
+    background-color: color($colors, light)
+    color: color($colors, white)
+    &.activity
+      background-color: color($colors, primary)
+      ion-card
+        @extend .hide
+      ion-label.label
+        color: color($colors, white)
+        text-align: center
+
+ion-card
+  &-header
+    img
+      width: initial
+      margin: 0 auto
+  ion-label
+    margin-left: 16px
+
+// Title card
+.pill
+  &-author
+    color: color($colors, gray)
+    position: relative
+    max-width: 70%
+    margin: 0 auto
+  &-time
+    font-size: 14px
+// PrevAct
+.rounded
+  padding-bottom: 30px
+  button
+    width: 50px
+    height: 50px
+    border-radius: 60px
+    padding: 30px
+    font-size: 2.5rem
+    position: absolute
+    right: 8px
+    bottom: 5px
