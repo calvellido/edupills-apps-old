@@ -36,4 +36,8 @@ $colors: (
 );
 
 // Override Ionic variables
-$list-md-text-color: color($colors, dark)
+$list-md-text-color: color($colors, dark);
+$card-md-text-color: color($colors, dark);
+$card-md-title-font-size: 2.6rem;
+$card-md-title-text-color: color($colors, dark);
+$card-md-font-size: 1.9rem;

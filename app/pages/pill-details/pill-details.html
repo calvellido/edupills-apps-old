@@ -5,15 +5,46 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar dark>
+  <ion-navbar light [ngClass]="{primary: item.type === 'activity'}">
         <ion-title>Pill Details</ion-title>
+        <ion-icon white name="move" class="right-16"></ion-icon>
+        <ion-icon white name="share" class="right-8"></ion-icon>
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <h3>{{item.title}}</h3>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+<ion-content padding class="{{item.type}}">
+    <ion-label *ngIf="item.type === 'activity'" class="label">{{item.label}}</ion-label>
+    <p padding *ngIf="item.type === 'activity'">{{item.note}}</p>
+
+<ion-card class="list card">
+
+  <ion-card-header>
+    <img *ngIf="item.type === 'title'" width="80" height="80" src="img/category.png" class="top-16">
+    <img *ngIf="item.type === 'summary'" width="80" height="80" [src]="item.svg" class="top-16">
+    <img *ngIf="item.type === 'custom' || item.type === 'prevAct'" height="120" [src]="item.image" [alt]="item-category" class="bottom-16">
+    <ion-label *ngIf="item.type === 'title'" class="label">{{item.category}}</ion-label>
+    <ion-label *ngIf="item.type === 'summary'" class="label">{{item.label}}</ion-label>
+  </ion-card-header>
+
+  <ion-card-content *ngIf="item.type === 'title'">
+    <ion-card-title>{{item.title}}</ion-card-title>
+    <div class="pill-author">By {{item.author}}</div>
+  </ion-card-content>
+  <ion-card-content *ngIf="item.type === 'summary' || item.type === 'custom' || item.type === 'prevAct'">
+    <p>{{item.note}}</p>
+  </ion-card-content>
+
+  <ion-note *ngIf="item.type === 'title'">
+    <span class="pill-time"><ion-icon name="time"></ion-icon> {{item.ago}} min</span>
+    <span class="pill-activities">{{item.activities}} Activities</span>
+  </ion-note>
+  <ion-note *ngIf="item.type === 'summary' || item.type === 'custom'" noborder>
+    <ion-icon name="bookmark" item-right></ion-icon>
+  </ion-note>
+  <ion-note *ngIf="item.type === 'prevAct'" class="rounded top-35">
+    <button primary><ion-icon name="ios-arrow-forward"></ion-icon></button>
+  </ion-note>
+
+</ion-card>
+
 </ion-content>
