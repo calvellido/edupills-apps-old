@@ -13,8 +13,6 @@
     color: color($colors, white)
     &.activity
       background-color: color($colors, primary)
-      ion-card
-        @extend .hide
       ion-label.label
         color: color($colors, white)
         text-align: center
@@ -34,17 +32,26 @@ ion-card
     position: relative
     max-width: 70%
     margin: 0 auto
+    font-size: 1.4rem
   &-time
+    font-size: 14px
+  &-activities
     font-size: 14px
 // PrevAct
 .rounded
   padding-bottom: 30px
   button
-    width: 50px
-    height: 50px
+    width: 60px
+    height: 60px
     border-radius: 60px
-    padding: 30px
     font-size: 2.5rem
     position: absolute
     right: 8px
-    bottom: 5px
+    bottom: 8px
+    padding: 0
+    color: color($colors, white)
+    span
+      display: block
+      ion-icon
+        padding: 0
+        transform: translateY(70%)

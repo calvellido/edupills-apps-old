@@ -29,7 +29,7 @@ export class PillListPage {
                 note: 'Una mañana, tras un sueño intranquilo, Gregorio Samsa se despertó convertido en un monstruoso insecto. #' + i,
                 ago: 5,
                 author: 'Author',
-                completed: 0,
+                completed: 1,
                 activities: 4
             });
         }
