@@ -9,13 +9,11 @@ options:
   # Don't merge default rules
   merge-default-rules: false
   # Set the formatter to 'stylish'
-  # formatter: 'stylish'
+  formatter: 'checkstyle'
   # Set the formatter to 'html'
-  formatter: html
+  #formatter: html
   # Output file instead of logging results
-  output-file: 'sassLintResult.html'
-
-
+  output-file: 'sassLintResult.xml'
 
 # Rule Configuration
 rules:
