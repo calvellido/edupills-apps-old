@@ -6,11 +6,11 @@
 // By default each design mode includes these shared imports.
 // App Shared Sass variables belong in app.variables.scss.
 
-@import ../pages/home/home
-@import ../pages/custom-menu/custom-menu
-@import ../pages/pill-list/pill-list
-@import ../pages/pill-details/pill-details
-@import ../pages/user/user
+@import '../pages/home/home'
+@import '../pages/custom-menu/custom-menu'
+@import '../pages/pill-list/pill-list'
+@import '../pages/pill-details/pill-details'
+@import '../pages/user/user'
 
 body
   font-size: 18px
@@ -59,15 +59,15 @@ ion-icon[medium]
 .pill-details-page,
 .home-page,
 .user-page
-  .toolbar-title
-   +hide-accessible
+  .toolbar-title & 
+    +hide-accessible
 .toolbar-title
   text-transform: uppercase
   font-weight: normal
   font-size: 1em
   .home-page &,
   .user-page &
-     +hide-accessible
+    +hide-accessible
 
 // Label
 ion-label
