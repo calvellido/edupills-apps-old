@@ -39,12 +39,6 @@ rules:
     - 1
     -
       size: 2
-  property-sort-order:
-    - 0
-    -
-      order:
-        - display
-        - margin
-      ignore-custom-properties: true
+
 
 
