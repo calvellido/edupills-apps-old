@@ -7,7 +7,7 @@ import {UserPage} from "./pages/user/user";
 
 
 @Component({
-    templateUrl: 'build/app.html'
+    templateUrl: "build/app.html"
 })
 export class MyApp {
 
@@ -21,9 +21,9 @@ export class MyApp {
         this.initializeApp();
         // set our app's pages
         this.pages = [
-            { title: 'Highlighted courses', component: PillListPage },
-            { title: 'All courses', component: PillListPage },
-            { title: 'User', component: UserPage }
+            { title: "Highlighted courses", component: PillListPage },
+            { title: "All courses", component: PillListPage },
+            { title: "User", component: UserPage }
         ];
 
     }
