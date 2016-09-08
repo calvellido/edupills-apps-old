@@ -90,7 +90,6 @@ gulp.task('tsLint', function() {
         }));
 });
 
-
 // Analyze SASS and SCSS code
 gulp.task('sassLint', function() {
     return gulp.src('app/**/*.s+(a|c)ss')
