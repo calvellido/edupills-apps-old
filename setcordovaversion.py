@@ -21,20 +21,12 @@ from xml.dom import minidom
 #
 #####
 def isValidCordovaVersionString(versionString):
-	versionStringComponents = versionString.split('.')
-
-	if (len(versionStringComponents) == 3):
-		# We have the right number of component parts
-		# Check each is actually a number
-		for i in range(len(versionStringComponents)):
-			try:
-				int(versionStringComponents[i])
-			except ValueError:
-				return False
-
+	try:
+		int(versionString)
 		return True
-	else:
+	except ValueError:
 		return False	
+
 
 def isValidCordovaBuildString(buildString):
 	try:
@@ -64,8 +56,12 @@ def setVersionAndBuildNumbers(versionNumber, buildNumber, configFile):
 		print '*****ERROR: Failed to find a single <widget> element in config.xml'
 		sys.exit(1)
 
-	print 'Setting version number to ' + versionNumber
-	widgetElem.setAttribute('version', versionNumber)
+	actualVersionXYZ = widgetElem.getAttribute('version')
+	actualVersionXY = str(actualVersionXYZ.rsplit('.',1)[0])
+	print 'Actual version X.Y ' + actualVersionXY
+
+	print 'Setting version number to ' + actualVersionXY + '.' + versionNumber
+	widgetElem.setAttribute('version', actualVersionXY + '.' + versionNumber)  
 
 	print 'Setting iOS build number to ' + buildNumber
 	widgetElem.setAttribute('ios-CFBundleVersion', buildNumber)
@@ -82,7 +78,7 @@ def setVersionAndBuildNumbers(versionNumber, buildNumber, configFile):
 #####
 if (len(sys.argv) == 4):
 	if (os.path.isfile(sys.argv[3])):
-		# Check that first arugment is valid, Cordova needs 0.0.0 type format
+		# Check that first arugment is valid, Cordova needs a number
 		if (isValidCordovaVersionString(sys.argv[1])):
 			# Check that the second argument is valid, Cordova needs a number
 			if (isValidCordovaBuildString(sys.argv[2])):
@@ -92,7 +88,7 @@ if (len(sys.argv) == 4):
 				print '*****ERROR: buildNumber must be an integer number'
 				sys.exit(1)
 		else:
-			print '*****ERROR: versionNumber must be of the form 0.0.0'
+			print '*****ERROR: versionNumber must be needs a number'
 			sys.exit(1)
 	else:
 		print '*****ERROR: ' + sys.argv[3] + ' file does not exist'
