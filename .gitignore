@@ -5,3 +5,4 @@ plugins/
 coverage/
 .DS_Store
 **/*~
+.vscode
