@@ -1,4 +1,4 @@
-describe('MyApp', () => {
+describe('Edupills app', () => {
 
   beforeEach(() => {
     browser.get('');

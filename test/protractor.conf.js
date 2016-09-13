@@ -11,7 +11,7 @@ var screenshotReporter = new SSReporter ({
 });
 
 exports.config = {
-    baseUrl: 'http://localhost:8101',
+    baseUrl: 'http://localhost:8100',
 
     specs: [
       '../www/build/test/**/*.e2e.js'
