@@ -6,10 +6,11 @@
 // By default each design mode includes these shared imports.
 // App Shared Sass variables belong in app.variables.scss.
 
-@import ../pages/home/home
-@import ../pages/pill-list/pill-list
-@import ../pages/pill-details/pill-details
-@import ../pages/user/user
+@import '../pages/home/home'
+@import '../pages/custom-menu/custom-menu'
+@import '../pages/pill-list/pill-list'
+@import '../pages/pill-details/pill-details'
+@import '../pages/user/user'
 
 body
   font-size: 18px
@@ -38,9 +39,6 @@ ion
   &-list[inset]
     button.item
       padding-right: 16px
-  // Label
-  &-label
-    white-space: initial
 
 // Buttons
 .button
@@ -50,6 +48,8 @@ ion
 // Icons
 ion-icon[medium]
   font-size: 2em
+[right]
+  float: right
 
 // Item
 [item-right]
@@ -59,23 +59,24 @@ ion-icon[medium]
 .pill-details-page,
 .home-page,
 .user-page
-  .toolbar-title
-   +hide-accessible
+  .toolbar-title & 
+    +hide-accessible
 .toolbar-title
   text-transform: uppercase
   font-weight: normal
   font-size: 1em
   .home-page &,
   .user-page &
-     +hide-accessible
+    +hide-accessible
 
 // Label
 ion-label
+  white-space: initial
   &.label
-    text-transform: uppercase
+    margin: 8px 16px 8px 16px
     color: color($colors, primary)
     font-weight: 600
-    font-size: 1.8rem
+    font-size: 1.4rem    
 
 // Cards
 ion-card
@@ -91,10 +92,10 @@ ion-card
       font-size: $card-md-font-size
       text-align: left
 ion-note
-  border-top: 1px solid color($colors, gray)
-  margin: 1em 1em 0
-  width: calc(100% - 2em)
   display: block
+  margin: 1em 1em 0
+  border-top: 1px solid color($colors, gray)  
+  width: calc(100% - 2em)  
   padding: 8px 0
   text-align: left
   bottom: 0

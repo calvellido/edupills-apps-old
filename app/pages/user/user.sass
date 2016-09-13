@@ -1,9 +1,11 @@
-@import ../../theme/app.variables
-@import ../../theme/app.utils
+@import '../../theme/app.variables'
+@import '../../theme/app.utils'
 
 .user
   scroll-content
-    margin-top: 55px!important
+    margin-top: 0px no-important
+    > div[dark]
+      padding-top: 4em
   img
     border-radius: 50%
     max-width: 120px
@@ -14,17 +16,16 @@
   &-mail
     margin-top: 0
   .courses-completed
-    text-align: center
-    text-transform: capitalize
-    font-size: 1.1em
     margin: 12%  0 5%
-    span
-      width: 100%
+    text-transform: capitalize
+    font-size: 1.1em    
+    span      
       display: block
       font-weight: 600
       font-size: 2em
       color: color($colors, secondary)
       margin-bottom: 0.25em
+      width: 100%
   button
     display: block
     margin: 0 auto

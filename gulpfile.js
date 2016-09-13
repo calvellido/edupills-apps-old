@@ -32,7 +32,11 @@ var buildSass = require('ionic-gulp-sass-build');
 var copyHTML = require('ionic-gulp-html-copy');
 var copyFonts = require('ionic-gulp-fonts-copy');
 var copyScripts = require('ionic-gulp-scripts-copy');
-var tslint = require('ionic-gulp-tslint');
+// var tslint = require('ionic-gulp-tslint');
+var tslint = require('gulp-tslint');
+var sassLint = require('gulp-sass-lint');
+var tslintReporter = require('gulp-tslint-jenkins-reporter');
+
 
 var isRelease = argv.indexOf('--release') > -1;
 
@@ -72,4 +76,26 @@ gulp.task('scripts', copyScripts);
 gulp.task('clean', function(){
   return del('www/build');
 });
-gulp.task('lint', tslint);
+//gulp.task('lint', tslint);
+
+// Analyze TS code
+gulp.task('tsLint', function() {
+    return gulp.src('./app/*.ts')
+        .pipe(tslint())
+        .pipe(tslintReporter({
+            sort: true,
+            filename: 'tsLintResult.xml',
+            severity: 'error',
+            pathBase: './'
+        }));
+});
+
+// Analyze SASS and SCSS code
+gulp.task('sassLint', function() {
+    return gulp.src('app/**/*.s+(a|c)ss')
+    .pipe(sassLint({
+    	config: '.sass-lint.yml'
+    }))
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
+});

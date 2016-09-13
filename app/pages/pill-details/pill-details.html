@@ -13,17 +13,17 @@
 </ion-header>
 
 <ion-content padding class="{{item.type}}">
-    <ion-label *ngIf="item.type === 'activity'" class="label">{{item.label}}</ion-label>
+    <ion-label *ngIf="item.type === 'activity'" class="label">{{item.label | uppercase}}</ion-label>
     <p padding *ngIf="item.type === 'activity'">{{item.note}}</p>
 
-<ion-card class="list card">
+<ion-card class="list card" *ngIf="item.type === 'title' || item.type === 'summary' || item.type === 'custom' || item.type === 'prevAct'">
 
   <ion-card-header>
-    <img *ngIf="item.type === 'title'" width="80" height="80" src="img/category.png" class="top-16">
-    <img *ngIf="item.type === 'summary'" width="80" height="80" [src]="item.svg" class="top-16">
+    <img *ngIf="item.type === 'title'" width="60" height="60" src="img/category.png" class="top-16">
+    <img *ngIf="item.type === 'summary'" width="80" height="60" [src]="item.svg" class="top-16">
     <img *ngIf="item.type === 'custom' || item.type === 'prevAct'" height="120" [src]="item.image" [alt]="item-category" class="bottom-16">
-    <ion-label *ngIf="item.type === 'title'" class="label">{{item.category}}</ion-label>
-    <ion-label *ngIf="item.type === 'summary'" class="label">{{item.label}}</ion-label>
+    <ion-label *ngIf="item.type === 'title'" class="label">{{item.category | uppercase}}</ion-label>
+    <ion-label *ngIf="item.type === 'summary'" class="label">{{item.label | uppercase}}</ion-label>
   </ion-card-header>
 
   <ion-card-content *ngIf="item.type === 'title'">
@@ -42,7 +42,7 @@
     <ion-icon name="bookmark" item-right></ion-icon>
   </ion-note>
   <ion-note *ngIf="item.type === 'prevAct'" class="rounded top-35">
-    <button primary><ion-icon name="ios-arrow-forward"></ion-icon></button>
+    <button><ion-icon name="ios-arrow-forward"></ion-icon></button>
   </ion-note>
 
 </ion-card>
