@@ -35,6 +35,7 @@ var copyScripts = require('ionic-gulp-scripts-copy');
 // var tslint = require('ionic-gulp-tslint');
 var tslint = require('gulp-tslint');
 var sassLint = require('gulp-sass-lint');
+var scssLint = require('gulp-scss-lint');
 var tslintReporter = require('gulp-tslint-jenkins-reporter');
 
 
@@ -90,12 +91,23 @@ gulp.task('tsLint', function() {
         }));
 });
 
-// Analyze SASS and SCSS code
+// Analyze SASS  code
 gulp.task('sassLint', function() {
-    return gulp.src('app/**/*.s+(a|c)ss')
+    return gulp.src('app/**/*.sass')
     .pipe(sassLint({
-    	config: '.sass-lint.yml'
+    	configFile: '.sass-lint.yml'
     }))
     .pipe(sassLint.format())
-    .pipe(sassLint.failOnError())
+    .pipe(sassLint.failOnError());
+});
+
+// Analyze SCSS code
+gulp.task('scssLint', function() {
+  return gulp.src('app/**/*.scss')
+    .pipe(scssLint({
+		'config': '.scss-lint.yml',
+		'filePipeOutput': 'scssReport.json'
+	}))
+	.pipe(gulp.dest('./'))
+	.pipe(scssLint.failReporter());
 });
