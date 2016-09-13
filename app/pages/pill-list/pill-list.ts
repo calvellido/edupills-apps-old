@@ -18,7 +18,7 @@ export class PillListPage {
     constructor(private navCtrl: NavController, private navParams: NavParams) {
 
         this.items = [];
-        for (let i = 1; i < 201; i++) {
+        for (let i = 1; i < 21; i++) {
             this.items.push({
                 type: 'activity',
                 category: 'category',
