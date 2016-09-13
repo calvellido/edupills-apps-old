@@ -15,15 +15,15 @@ export class MyApp {
 
     // make HelloIonicPage the root (or first) page
     rootPage: any = PillListPage;
-    pages: Array<{ title: string, component: any }>;
+    pages: Array<{ title: string, id: string, component: any }>;
 
     constructor(private platform: Platform, private menu: MenuController) {
         this.initializeApp();
         // set our app's pages
         this.pages = [
-            { title: "Highlighted courses", component: PillListPage },
-            { title: "All courses", component: PillListPage },
-            { title: "User", component: UserPage }
+            { title: "Highlighted courses", id: "idPageHighlightedCourses", component: PillListPage },
+            { title: "All courses", id: "idPageAllCourses", component: PillListPage },
+            { title: "User", id: "idPageUser", component: UserPage }
         ];
 
     }
