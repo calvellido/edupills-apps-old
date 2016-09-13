@@ -3,7 +3,7 @@
 // App Shared Variables
 // --------------------------------------------------
 // Shared Sass variables go in the app.variables.sass file
-@import "app.variables";
+@import 'app.variables';
 
 // App Material Design Variables
 // --------------------------------------------------
@@ -13,18 +13,18 @@
 // --------------------------------------------------
 // Custom App variables must be declared before importing Ionic.
 // Ionic will use its default values when a custom variable isn't provided.
-@import "ionic.md";
+@import 'ionic.md';
 
 // App Shared Utilities
 // --------------------------------------------------
 // Shared Sass utilities go in the app.utils.sass file
-@import "app.utils";
+@import 'app.utils';
 
 // App Shared Sass
 // --------------------------------------------------
 // All Sass files that make up this app goes into the app.core.sass file.
 // For simpler CSS overrides, custom app CSS must come after Ionic's CSS.
-@import "app.core";
+@import 'app.core';
 
 // App Material Design Only Sass
 // --------------------------------------------------

@@ -4,7 +4,7 @@
 // --------------------------------------------------
 // Makes Ionic Sass functions available to your App
 
-@import "globals.core";
+@import 'globals.core';
 
 // App Shared Variables
 // --------------------------------------------------
@@ -25,14 +25,14 @@
 // are different per mode.
 
 $colors: (
-  primary: #29B6F6,
-  secondary: #0176BC,
-  danger: #EF5350,
-  light: #94DAFA,
-  dark: #495F70,
-  favorite: #00AA85,
+  primary: #29b6f6,
+  secondary: #0176bc,
+  danger: #ef5350,
+  light: #94dafa,
+  dark: #495f70,
+  favorite: #00aa85,
   gray: #999,
-  white: #FFFFFF
+  white: #fff
 );
 
 // Override Ionic variables
