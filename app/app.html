@@ -1,12 +1,12 @@
 <ion-menu [content]="content">
 
-<ion-header>
-			<ion-icon padding menuToggle name="md-arrow-back" medium dark></ion-icon>
-      <div padding right>
-        <ion-icon dark name="search" medium class="right-16"></ion-icon>
-        <ion-icon [navPush]="UserPage" dark name="contact" medium class="right-8"></ion-icon>
-      </div>
-</ion-header>
+    <ion-header>
+        <ion-icon padding menuToggle name="md-arrow-back" medium dark></ion-icon>
+        <div padding right>
+            <ion-icon dark name="search" medium class="right-16"></ion-icon>
+            <ion-icon [navPush]="UserPage" dark name="contact" medium class="right-8"></ion-icon>
+        </div>
+    </ion-header>
     <ion-toolbar white>
         <ion-title class="hide">Menu
         </ion-title>
@@ -15,7 +15,7 @@
 
     <ion-content>
         <ion-list>
-            <button nopadding ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
+            <button nopadding ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)" id="{{ p.id }}">
                 <!-- <ion-icon item-left [name]="p.icon"></ion-icon> -->
                 {{p.title}}
             </button>
