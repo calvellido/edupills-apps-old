@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -528,51 +528,51 @@ var Menu = (function () {
         this._cntEle = null;
     };
     __decorate([
-        core_1.ViewChild(backdrop_1.Backdrop), 
+        core_1.ViewChild(backdrop_1.Backdrop),
         __metadata('design:type', backdrop_1.Backdrop)
     ], Menu.prototype, "backdrop", void 0);
     __decorate([
-        core_1.Input(), 
+        core_1.Input(),
         __metadata('design:type', Object)
     ], Menu.prototype, "content", void 0);
     __decorate([
-        core_1.Input(), 
+        core_1.Input(),
         __metadata('design:type', String)
     ], Menu.prototype, "id", void 0);
     __decorate([
-        core_1.Input(), 
+        core_1.Input(),
         __metadata('design:type', String)
     ], Menu.prototype, "side", void 0);
     __decorate([
-        core_1.Input(), 
+        core_1.Input(),
         __metadata('design:type', String)
     ], Menu.prototype, "type", void 0);
     __decorate([
-        core_1.Input(), 
+        core_1.Input(),
         __metadata('design:type', Boolean)
     ], Menu.prototype, "enabled", null);
     __decorate([
-        core_1.Input(), 
+        core_1.Input(),
         __metadata('design:type', Boolean)
     ], Menu.prototype, "swipeEnabled", null);
     __decorate([
-        core_1.Input(), 
+        core_1.Input(),
         __metadata('design:type', Boolean)
     ], Menu.prototype, "persistent", null);
     __decorate([
-        core_1.Input(), 
+        core_1.Input(),
         __metadata('design:type', Number)
     ], Menu.prototype, "maxEdgeStart", void 0);
     __decorate([
-        core_1.Output(), 
+        core_1.Output(),
         __metadata('design:type', core_1.EventEmitter)
     ], Menu.prototype, "ionDrag", void 0);
     __decorate([
-        core_1.Output(), 
+        core_1.Output(),
         __metadata('design:type', core_1.EventEmitter)
     ], Menu.prototype, "ionOpen", void 0);
     __decorate([
-        core_1.Output(), 
+        core_1.Output(),
         __metadata('design:type', core_1.EventEmitter)
     ], Menu.prototype, "ionClose", void 0);
     Menu = __decorate([
@@ -585,7 +585,7 @@ var Menu = (function () {
             directives: [backdrop_1.Backdrop],
             changeDetection: core_1.ChangeDetectionStrategy.OnPush,
             encapsulation: core_1.ViewEncapsulation.None,
-        }), 
+        }),
         __metadata('design:paramtypes', [menu_controller_1.MenuController, core_1.ElementRef, config_1.Config, platform_1.Platform, core_1.Renderer, keyboard_1.Keyboard, core_1.NgZone, gesture_controller_1.GestureController])
     ], Menu);
     return Menu;
