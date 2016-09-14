@@ -5,4 +5,5 @@ plugins/
 coverage/
 .DS_Store
 **/*~
-.vscode
+.vscode/
+scssLintResult.xml
