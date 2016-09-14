@@ -1,9 +1,8 @@
 var gulp = require('gulp'),
-    gulpWatch = require('gulp-watch'),
-    del = require('del'),
-    runSequence = require('run-sequence'),
-    argv = process.argv;
-
+	gulpWatch = require('gulp-watch'),
+	del = require('del'),
+	runSequence = require('run-sequence'),
+	argv = process.argv;
 
 /**
  * Ionic hooks
@@ -38,76 +37,76 @@ var sassLint = require('gulp-sass-lint');
 var scssLint = require('gulp-scss-lint');
 var tslintReporter = require('gulp-tslint-jenkins-reporter');
 
-
 var isRelease = argv.indexOf('--release') > -1;
 
-gulp.task('watch', ['clean'], function(done){
-  runSequence(
+gulp.task('watch', ['clean'], function(done) {
+	runSequence(
     ['sass', 'html', 'fonts', 'scripts'],
-    function(){
-      gulpWatch('app/**/*.sass', function(){ gulp.start('sass'); });
-      gulpWatch('app/**/*.scss', function(){ gulp.start('sass'); });
-      gulpWatch('app/**/*.html', function(){ gulp.start('html'); });
-      buildBrowserify({ watch: true }).on('end', done);
-    }
-  );
+		function() {
+			gulpWatch('app/**/*.sass', function() { gulp.start('sass'); });
+			gulpWatch('app/**/*.scss', function() { gulp.start('sass'); });
+			gulpWatch('app/**/*.html', function() { gulp.start('html'); });
+			buildBrowserify({ watch: true }).on('end', done);
+		}
+	);
 });
 
-gulp.task('build', ['clean'], function(done){
-  runSequence(
+gulp.task('build', ['clean'], function(done) {
+	runSequence(
     ['sass', 'html', 'fonts', 'scripts'],
-    function(){
-      buildBrowserify({
-        minify: isRelease,
-        browserifyOptions: {
-          debug: !isRelease
-        },
-        uglifyOptions: {
-          mangle: false
-        }
-      }).on('end', done);
-    }
-  );
+		function() {
+			buildBrowserify({
+				minify: isRelease,
+				browserifyOptions: {
+					debug: !isRelease
+				},
+				uglifyOptions: {
+					mangle: false
+				}
+			}).on('end', done);
+		}
+	);
 });
 
 gulp.task('sass', buildSass);
 gulp.task('html', copyHTML);
 gulp.task('fonts', copyFonts);
 gulp.task('scripts', copyScripts);
-gulp.task('clean', function(){
-  return del('www/build');
+gulp.task('clean', function() {
+	return del('www/build');
 });
 //gulp.task('lint', tslint);
 
 // Analyze TS code
 gulp.task('tsLint', function() {
-    return gulp.src('./app/*.ts')
-        .pipe(tslint())
-        .pipe(tslintReporter({
-            sort: true,
-            filename: 'tsLintResult.xml',
-            severity: 'error',
-            pathBase: './'
-        }));
+	return gulp.src('./app/*.ts')
+		.pipe(tslint())
+		.pipe(tslintReporter({
+			sort: true,
+			filename: 'tsLintResult.xml',
+			severity: 'error',
+			pathBase: './'
+		}));
 });
 
-// Analyze SASS  code
+// Analyze SASS code
 gulp.task('sassLint', function() {
-    return gulp.src('app/**/*.sass')
-    .pipe(sassLint({
-    	configFile: '.sass-lint.yml'
-    }))
-    .pipe(sassLint.format())
-    .pipe(sassLint.failOnError());
+	return gulp.src('app/**/*.sass')
+		.pipe(sassLint({
+			configFile: '.sass-lint.yml'
+		}))
+		.pipe(sassLint.format())
+		.pipe(sassLint.failOnError());
 });
 
 // Analyze SCSS code
 gulp.task('scssLint', function() {
-  return gulp.src('app/**/*.scss')
-    .pipe(scssLint({
-		'config': '.scss-lint.yml',
-		'filePipeOutput': 'scssReport.json'
-	}))
-	.pipe(gulp.dest('./'))
-	.pipe(scssLint.failReporter());
+	return gulp.src('app/**/*.scss')
+		.pipe(scssLint({
+			'config': '.scss-lint.yml',
+			'reporterOutputFormat': 'Checkstyle',
+			'filePipeOutput': 'scssLintResult.xml'
+		}))
+		.pipe(gulp.dest('./'))
+		.pipe(scssLint.failReporter());
 });
