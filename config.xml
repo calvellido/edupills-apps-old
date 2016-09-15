@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><widget android-versionCode="27" id="com.ionicframework.edupills955847" ios-CFBundleVersion="27" version="0.2.27" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<?xml version="1.0" encoding="utf-8"?><widget android-versionCode="50" id="com.ionicframework.edupills955847" ios-CFBundleVersion="50" version="0.2.50" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>edupills</name>
     <description>Educational pills by INTEF</description>
     <author email="mojava@emergya.com" href="http://emergya.com/">Emergya Mojava Team</author>
